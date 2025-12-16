@@ -49,7 +49,7 @@ export default function Home() {
             v1.0 Live Now
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-linear-to-b from-white to-slate-400">
             Security Built from Scratch
             <br />
             <span className="text-blue-500">Hash Lock</span>
