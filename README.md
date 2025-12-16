@@ -47,7 +47,7 @@ The normalized schema tightly links users, events, orders, tickets, and ticket v
 
 ## Screenshots
 
-|              Admin Page              |               User Page                |            Login and SignUp            |
+|              Admin Page              |               User Page                |               Login Page               |
 | :----------------------------------: | :------------------------------------: | :------------------------------------: |
 | ![Event Page](screenshots/admin.png) | ![Event Details](screenshots/user.png) | ![Success Page](screenshots/login.png) |
 
@@ -92,8 +92,6 @@ This project deliberately chooses **Stateful (Database) Sessions** over Stateles
 | **Access Control**       | **Granular.** Different parts of the system can query specific data they need using the ID.                      | **All-or-Nothing.** Every service sees all data packed into the token.                                                              |
 | **Scalability**          | **Moderate.** Requires scaling the database/cache (Redis) to handle lookups.                                     | **High.** No database lookups required for verification.                                                                            |
 | **Implementation**       | **Complex.** Requires setting up a session store and cleanup jobs.                                               | **Simple.** Self-contained; no extra storage infrastructure needed.                                                                 |
-
-**Verdict:** For this project, the ability to **instantly revoke sessions** and **prevent PII exposure** (Stateful) outweighed the scalability convenience of JWTs (Stateless).
 
 ## Security Implementation
 
