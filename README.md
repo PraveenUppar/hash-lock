@@ -6,15 +6,15 @@
   <a href="https://hash-lock.pavicodes.in">
     <img src="https://img.shields.io/website?url=https%3A%2F%2Fhash-lock.pavicodes.in&label=Live%20Demo" alt="Website" />
   </a>
-  <img src="https://img.shields.io/github/issues/PraveenUppar/hashlock" alt="Issues" />
-  <img src="https://img.shields.io/github/last-commit/PraveenUppar/hashlock" alt="Last Commit" />
+  <img src="https://img.shields.io/github/issues/PraveenUppar/hash-lock" alt="Issues" />
+  <img src="https://img.shields.io/github/last-commit/PraveenUppar/hash-lock" alt="Last Commit" />
 </p>
 
 ---
 
 ## Description
 
-Hash Lock is a robust, security-focused authentication system built entirely from scratch. It demonstrates how to implement production-grade security patterns — including **OAuth 2.0**, **Role-Based Access Control (RBAC)**, **stateful session management**, and **brute-force protection** — without relying on any third-party auth libraries.
+Hash Lock is a robust, security-focused authentication system. It demonstrates how to implement production-grade security patterns — including **OAuth 2.0**, **Role-Based Access Control (RBAC)**, **stateful session management**, and **brute-force protection** — without relying on any third-party auth libraries.
 
 🔗 **Live:** [https://hash-lock.pavicodes.in](https://hash-lock.pavicodes.in)
 
@@ -42,22 +42,7 @@ graph TD
     App -->|Hashing| Argon2[Argon2id]
 ```
 
-## Tech Stack
-
-- **Framework:** Next.js 15 (App Router, Server Actions)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS + Lucide Icons
-- **Database:** PostgreSQL (hosted on Supabase)
-- **ORM:** Prisma
-- **Cryptography:** Argon2id
-- **Rate Limiting:** Upstash Redis (Sliding Window)
-- **Email:** Resend
-- **Validation:** Zod
-- **Deployment:** Vercel
-
 ## Database Schema
-
-The normalized schema tightly links users, sessions, and accounts with strict foreign keys to maintain referential integrity.
 
 <p align="center">
   <img src="screenshots/db.png" alt="Database Schema" width="80%" />
@@ -189,9 +174,6 @@ This project deliberately chooses **Stateful (Database) Sessions** over Stateles
 | **Compromise Risk**      | **Isolated.** Compromise is limited to the auth system database.                                                 | **System-wide.** If one service leaks the signing key, the entire system is compromised.                      |
 | **Network Overhead**     | **Low.** The cookie is a tiny UUID string.                                                                       | **High.** Tokens grow large as you add user roles and data, increasing bandwidth on every request.            |
 
-### Cryptography (Argon2id)
-
-Instead of outdated algorithms like MD5 or fast algorithms like SHA-256 (vulnerable to GPU brute-forcing), this project uses **Argon2id** — the winner of the Password Hashing Competition. It is memory-hard, making it significantly more expensive for attackers to crack hashes offline.
 
 ### Rate Limiting (Upstash Redis)
 
