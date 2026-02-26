@@ -13,7 +13,6 @@ export async function POST(request: Request) {
   // 2. CHECK RATE LIMIT
   const { success, limit, reset, remaining } = await ratelimit.limit(ip);
 
-  // --- THIS WAS MISSING ---
   // If the limit is hit (success is false), return a 429 error immediately.
   if (!success) {
     return NextResponse.json(
@@ -28,7 +27,6 @@ export async function POST(request: Request) {
       }
     );
   }
-  // ------------------------
 
   try {
     const body = await request.json();

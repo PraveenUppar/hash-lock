@@ -3,7 +3,7 @@
 import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Mail, Lock, Loader2, ArrowRight, Github } from "lucide-react";
+import { Mail, Lock, Loader2, ArrowRight } from "lucide-react";
 
 function LoginForm() {
   const router = useRouter();
